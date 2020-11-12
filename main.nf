@@ -66,16 +66,16 @@ process krona{
 
     tag { sample_id }
 
-    publishDir "results/krona/"
+    publishDir "results/MultiQC/"
 
     input:
     set sample_id, file(report) from OUT_KRAKEN
 
     output:
-    file("*_krona.html")
+    file("*html")
 
     script:
     """
-    ktImportText ${report} -o ${sample_id}_krona.html
+    ktImportText ${report} -o multiqc_report.html
     """
 }
