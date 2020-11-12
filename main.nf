@@ -76,6 +76,6 @@ process krona{
 
     script:
     """
-    ktImportText ${krona_file} -o ${sample_id}_krona.html
+    ktImportText ${report} -o ${sample_id}_krona.html
     """
 }
