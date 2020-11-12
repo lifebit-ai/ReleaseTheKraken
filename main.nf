@@ -76,6 +76,6 @@ process krona{
 
     script:
     """
-    ktImportText ${report} -o multiqc_report.html
+    ktImportTaxonomy -q 2 -t 3 ${report} -o multiqc_report.html
     """
 }
