@@ -30,7 +30,7 @@ process fastp {
     then
         fastp -i ${fastq_pair[0]} -o ${sample_id}_trim_1.fq.gz -I ${fastq_pair[1]} -O ${sample_id}_trim_2.fq.gz 
     else
-        fastp -i ${fastq_pair[0]}
+        fastp -i ${fastq_pair} -o ${sample_id}_trim_1.fq.gz 
     fi
     """
 }
@@ -56,7 +56,7 @@ process kraken2 {
     then
         kraken2 --memory-mapping --threads $task.cpus --report ${sample_id}_kraken_report.txt --db minikraken2_v1_8GB --paired --gzip-compressed ${fastq_pair[0]} ${fastq_pair[1]}
     else
-        kraken2 --memory-mapping --threads $task.cpus --report ${sample_id}_kraken_report.txt --db minikraken2_v1_8GB --single --gzip-compressed ${fastq_pair[0]}
+        kraken2 --memory-mapping --threads $task.cpus --report ${sample_id}_kraken_report.txt --db minikraken2_v1_8GB --single --gzip-compressed ${fastq_pair}
     fi
     """
 }
