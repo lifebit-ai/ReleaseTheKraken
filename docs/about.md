@@ -23,7 +23,6 @@ Release the Kraken workflow expects a single sample file (FASTQ), passed with th
 
 ```nextflow main.nf --fastq="test_data/SRR8886136_{1,2}*"```
 
-
 ### Example run
 
 [CloudOS Run](https://cloudos.lifebit.ai/public/jobs/5fad65393a193a011209dd7f)
